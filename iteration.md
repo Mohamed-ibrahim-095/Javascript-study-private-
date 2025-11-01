@@ -1,52 +1,45 @@
 <style>
-html, body {
+[lang="ar"] {
   direction: rtl;
   text-align: right;
+}
+
+[lang="en"] {
+  direction: ltr;
+  text-align: left;
+}
+
+/* جميع عناصر الكود */
+code, pre, kbd, samp {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate-override;
+}
+
+/* عناصر inline بالإنجليزية داخل النص العربي */
+[lang="ar"] :is(code, strong, em, var, cite) {
   unicode-bidi: isolate;
-  font-family: "Noto Sans Arabic", "Cairo", sans-serif;
-  line-height: 1.7;
+  direction: ltr;
 }
 
-/* تصحيح النصوص الإنجليزية داخل الفقرات */
-*[dir="ltr"], [lang="en"], code, pre, a, strong code {
-  direction: ltr !important;
-  unicode-bidi: embed !important;
-  text-align: left !important;
-  display: inline;
-}
-
-/* النصوص العربية */
-[lang="ar"], p, li, blockquote, h1, h2, h3, h4, h5, h6 {
-  direction: rtl !important;
-  unicode-bidi: isolate-override !important;
-  text-align: right !important;
-}
-
-/* لضبط الكود بلوك */
-pre {
-  direction: ltr !important;
-  text-align: left !important;
-  unicode-bidi: embed !important;
-  background-color: #f6f8fa;
-  border-radius: 6px;
-  padding: 1em;
-  overflow-x: auto;
-}
-
-/* الكود داخل النص */
-code {
-  direction: ltr !important;
-  unicode-bidi: embed !important;
-  background-color: #f6f8fa;
-  border-radius: 4px;
-  padding: 0.2em 0.4em;
-  font-family: "JetBrains Mono", monospace;
-}
-
-/* الجداول */
-table {
+/* التأكد من محاذاة القوائم */
+[lang="ar"] :is(ul, ol, dl) {
   direction: rtl;
   text-align: right;
+}
+
+[lang="ar"] :is(li, dd, dt) {
+  direction: rtl;
+  text-align: right;
+  text-align-last: right;
+}
+
+/* للنصوص المختلطة */
+[lang="ar"] p,
+[lang="ar"] blockquote {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: embed;
 }
 </style>
 
