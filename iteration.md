@@ -9,36 +9,68 @@
   text-align: left;
 }
 
-/* جميع عناصر الكود */
-code, pre, kbd, samp {
+code, pre {
   direction: ltr;
   text-align: left;
-  unicode-bidi: isolate-override;
 }
 
-/* عناصر inline بالإنجليزية داخل النص العربي */
-[lang="ar"] :is(code, strong, em, var, cite) {
-  unicode-bidi: isolate;
+/* ★ الحل الجذري: إجبار العناوين والقوائم على اليمين */
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar"] h4,
+[lang="ar"] h5,
+[lang="ar"] h6 {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* القوائم */
+[lang="ar"] ul,
+[lang="ar"] ol {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[lang="ar"] li {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* القوائم الوصفية */
+[lang="ar"] dl {
+  direction: rtl !important;
+}
+
+[lang="ar"] dt {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[lang="ar"] dd {
+  direction: rtl !important;
+  text-align: right !important;
+  margin-right: 2em;
+  margin-left: 0;
+}
+
+/* الفقرات */
+[lang="ar"] p {
+  direction: rtl;
+  text-align: right;
+}
+
+/* عزل الكود الإنجليزي داخل النص دون تغيير اتجاه السطر */
+[lang="ar"] code {
+  unicode-bidi: embed;
   direction: ltr;
 }
 
-/* التأكد من محاذاة القوائم */
-[lang="ar"] :is(ul, ol, dl) {
-  direction: rtl;
-  text-align: right;
-}
-
-[lang="ar"] :is(li, dd, dt) {
-  direction: rtl;
-  text-align: right;
-  text-align-last: right;
-}
-
-/* للنصوص المختلطة */
-[lang="ar"] p,
-[lang="ar"] blockquote {
-  direction: rtl;
-  text-align: right;
+/* الروابط داخل عناصر القوائم */
+[lang="ar"] li > a,
+[lang="ar"] li > code,
+[lang="ar"] dt > code,
+[lang="ar"] dd > code {
   unicode-bidi: embed;
 }
 </style>
